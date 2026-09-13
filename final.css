@@ -2,3 +2,9 @@
 :root .angkor{height:auto;aspect-ratio:3.25;background-size:195% auto;background-position:50% 67%;mask-image:linear-gradient(to bottom,transparent,#000 16%,#000 80%,transparent);opacity:1;margin-top:5px}
 :root .industry-art{height:auto;aspect-ratio:6;background-size:260% auto;background-position:50% 94%;mask-image:linear-gradient(to bottom,transparent,#000 15%,#000 80%,transparent)}
 .identity h1{font-size:clamp(36px,9.3vw,57px);line-height:1.2;color:var(--gold)}.primary small{white-space:normal;font-size:12px;overflow-wrap:anywhere}.section-title h2{font-size:clamp(25px,6.3vw,32px)}.profile>footer{margin-top:30px;padding-top:20px;border-color:var(--line)}.quiet,.save{border-color:var(--line)}
+/* Fully feather all decorative crops; do not expose adjacent card text or QR frame. */
+.profile .floral-art{top:65px;width:110px;height:150px;background-size:auto 285px;background-position:right top;opacity:.72;mask-image:linear-gradient(to right,transparent,#000 42%,#000 82%,transparent),linear-gradient(to bottom,transparent,#000 15%,#000 68%,transparent);mask-composite:intersect;pointer-events:none}
+:root .profile .angkor{width:100%;height:auto;aspect-ratio:3.45;background-size:200% auto;background-position:50% 64%;margin-top:14px;mask-image:linear-gradient(to right,transparent,#000 16%,#000 78%,transparent 94%),linear-gradient(to bottom,transparent,#000 20%,#000 70%,transparent);mask-composite:intersect;opacity:1}
+:root .profile .industry-art{mask-image:linear-gradient(to right,transparent,#000 10%,#000 90%,transparent),linear-gradient(to bottom,transparent,#000 20%,#000 70%,transparent);mask-composite:intersect}
+.profile .identity{position:relative;padding:14px 0 12px}
+.profile .identity h1{font-size:clamp(30px,7.6vw,45px);line-height:1.22;letter-spacing:0;overflow-wrap:normal;text-wrap:balance;max-width:100%;margin:4px auto 8px}
