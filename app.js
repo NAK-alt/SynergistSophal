@@ -8,3 +8,12 @@ $('share').onclick=async()=>{const data={title:p.company,text:strings[lang].tagl
 $('save').onclick=()=>{const card=['BEGIN:VCARD','VERSION:3.0','FN:'+p.name,'N:Chea;Sophal;;;','ORG:'+p.company,'TITLE:General Manager','TEL;TYPE=CELL:'+p.international,'EMAIL:'+p.email,'URL:'+p.products,'END:VCARD',''].join('\r\n');const url=URL.createObjectURL(new Blob([card],{type:'text/vcard;charset=utf-8'}));const a=document.createElement('a');a.href=url;a.download='Chea-Sophal-SYNERGIST.vcf';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000)};
 $('wechat').onclick=()=>window.location.assign(p.wechatUrl);
 $('wechat').querySelector('small').textContent='Add on WeChat';
+/* WeChat: copy ID, then open the app. */
+const wcText={en:{help:'Copy the ID, then open WeChat. Tap + → Add Contacts and paste the ID into search.',open:'Open WeChat',close:'Close',ready:'ID copied. Open WeChat and paste it in Add Contacts.'},km:{help:'ចម្លង ID រួចបើក WeChat។ ចុច + → Add Contacts រួចបិទភ្ជាប់ ID ដើម្បីស្វែងរក។',open:'បើក WeChat',close:'បិទ',ready:'បានចម្លង ID។ បើក WeChat រួចបិទភ្ជាប់ក្នុង Add Contacts។'},zh:{help:'复制微信 ID，然后打开微信。点击 + → 添加朋友，粘贴 ID 搜索。',open:'打开微信',close:'关闭',ready:'ID 已复制。请打开微信，在添加朋友中粘贴。'}};
+$('wechat').onclick=()=>{
+ const d=$('wechat-dialog'),t=wcText[lang];
+ d.innerHTML='<form method="dialog"><button aria-label="'+t.close+'">×</button></form><h2>WeChat</h2><p>'+t.help+'</p><input id="wc-id" readonly aria-label="WeChat ID" style="width:100%;padding:12px;color:#08162b;background:#fff;border-radius:6px"><div class="wechat-options"><button id="wc-copy" type="button">'+strings[lang].copy+'</button><a class="wechat-profile-link" href="weixin://">'+t.open+'</a></div><p id="wc-feedback" role="status" aria-live="polite"></p>';
+ d.querySelector('#wc-id').value=p.wechatId;
+ d.querySelector('#wc-copy').onclick=async()=>{try{await navigator.clipboard.writeText(p.wechatId);d.querySelector('#wc-feedback').textContent=t.ready}catch{d.querySelector('#wc-feedback').textContent=strings[lang].failed;d.querySelector('#wc-id').select()}};
+ d.showModal();
+};
