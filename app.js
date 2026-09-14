@@ -21,3 +21,11 @@ $('wechat').onclick=()=>{
 /* Optional uppercase name preview; normal links retain title case. */
 document.querySelector('.identity h1').textContent=new URLSearchParams(location.search).get('preview')==='uppercase'?p.name.toUpperCase():p.name;
 document.title=p.name+' · SYNERGIST LUBRICANTS';
+
+/* Make only the vehicle-strip background transparent. */
+const decorFilters=document.createElementNS('http://www.w3.org/2000/svg','svg');
+decorFilters.setAttribute('aria-hidden','true');decorFilters.setAttribute('width','0');decorFilters.setAttribute('height','0');decorFilters.style.position='absolute';
+decorFilters.innerHTML='<defs><filter id="decor-transparent" color-interpolation-filters="sRGB"><feColorMatrix in="SourceGraphic" type="matrix" values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 2 2 2 0 -0.75" result="matte"/><feComposite in="SourceGraphic" in2="matte" operator="in"/></filter></defs>';
+document.body.prepend(decorFilters);
+const decorStyle=document.createElement('style');
+decorStyle.textContent=':root .profile .industry-art{filter:url(#decor-transparent);mix-blend-mode:normal}';document.head.append(decorStyle);
