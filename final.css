@@ -14,3 +14,7 @@ dialog#wechat-dialog{max-height:92dvh;overflow-y:auto;padding:22px;overscroll-be
 :root .profile .industry-art{mask-image:linear-gradient(to bottom,transparent 44%,#000 49%,#000 86%,transparent 98%);mask-composite:add}
 /* Match copy and open buttons with distinct shades. */
 #wechat-dialog #wc-copy{display:block;width:100%;padding:11px 18px;border:1px solid var(--gold);border-radius:7px;background:color-mix(in srgb,var(--gold) 18%,#08162b);color:var(--gold);font:inherit;text-align:center;cursor:pointer;margin-top:12px;min-height:44px}#wechat-dialog #wc-copy:hover{background:color-mix(in srgb,var(--gold) 28%,#08162b)}#wechat-dialog #wc-copy:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+
+.profile .floral-art,.profile .angkor{mix-blend-mode:lighten}
+
+:root{--text:#fff;--muted:#fff}:root .profile .identity h1,:root .profile .identity>p:last-child,:root .profile .tagline,:root .profile .brand-note,:root .profile .section-title h2,:root .profile .section-title p,:root .profile .primary strong,:root .profile .primary small,:root .profile .secondary strong,:root .profile .secondary small,:root .profile .quiet,:root .profile .utility select,:root .profile .learn,:root .profile .save,:root .profile footer p,:root .profile footer>span,dialog h2,dialog p,#wechat-dialog #wc-copy{color:#fff}#wechat-dialog .wechat-profile-link{background:#414c60;color:#fff}
