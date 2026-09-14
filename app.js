@@ -17,3 +17,7 @@ $('wechat').onclick=()=>{
  d.querySelector('#wc-copy').onclick=async()=>{try{await navigator.clipboard.writeText(p.wechatId);d.querySelector('#wc-feedback').textContent=t.ready}catch{d.querySelector('#wc-feedback').textContent=strings[lang].failed;d.querySelector('#wc-id').select()}};
  d.showModal();
 };
+
+/* Optional uppercase name preview; normal links retain title case. */
+document.querySelector('.identity h1').textContent=new URLSearchParams(location.search).get('preview')==='uppercase'?p.name.toUpperCase():p.name;
+document.title=p.name+' · SYNERGIST LUBRICANTS';
